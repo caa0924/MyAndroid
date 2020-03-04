@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="spinnerCoord">
+        <item>北京54坐标系</item>
+        <item>西安80坐标系</item>
+        <item>CGCS2000坐标系</item>
+        <item>当地坐标系</item>
+    </string-array>
+    <string name="xMinRange">4309089.038</string>
+    <string name="xMaxRange">4334500</string>
+    <string name="yMinRange">411579.8348</string>
+    <string name="yMaxRange">441076.7563</string>
+</resources>

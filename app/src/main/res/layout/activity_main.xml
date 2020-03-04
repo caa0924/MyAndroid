@@ -29,15 +29,6 @@
                 android:layout_height="wrap_content"
                 android:layout_alignParentBottom="true"
                 android:background="#ffffff">
-                <Button
-                    android:id="@+id/setting_bt"
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:background="@drawable/bottom_btnback"
-                    android:text="设置"
-                    android:onClick="settingOnClick"
-                    android:textSize="16sp" />
 
                 <TextView
                     android:layout_width="1.0dp"
@@ -52,6 +43,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:background="@drawable/bottom_btnback"
+                    android:textColor="@color/black"
                     android:onClick="quitOnClick"
                     android:text="退出应用"
                     android:textSize="16sp" />

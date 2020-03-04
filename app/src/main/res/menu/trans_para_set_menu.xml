@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item
+        android:id="@+id/action_select_coord"
+        android:icon="@drawable/ic_select"
+        android:title="选择区域转换参数"
+        app:showAsAction="ifRoom" />
+    <group>
+        <item
+            android:id="@+id/action_import_coord"
+            android:icon="@drawable/vector_drawable_import_file"
+            android:title="导入参数文件"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_export_coord"
+            android:icon="@drawable/vector_drawable_export_file"
+            android:title="导出参数文件"
+            app:showAsAction="never" />
+        <item
+            android:id="@+id/action_file_manage"
+            android:icon="@drawable/ic_select"
+            android:title="参数文件管理"
+            app:showAsAction="never" />
+    </group>
+</menu>

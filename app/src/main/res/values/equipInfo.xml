@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+<string-array name="equipInfo">
+    <item>设备名称：</item>
+    <item>设备编号：</item>
+    <item>规格型号：</item>
+    <item>档案号：</item>
+    <item>工艺编号：</item>
+    <item>设备状况：</item>
+    <item>生产厂家：</item>
+    <item>出厂编号：</item>
+    <item>出厂日期：</item>
+    <item>投用日期：</item>
+    <item>所属单位：</item>
+    <item>设备分类：</item>
+    <item>设备原值（元）：</item>
+    <item>设计使用年限（年）：</item>
+    <item>设备负责人：</item>
+</string-array>
+
+
+</resources>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragment.WatchFragment">
+    tools:context="com.mhimine.jdk.coordapp.Fragment.WatchFragment">
+
     <android.support.design.widget.TabLayout
         android:id="@+id/watch_tl"
         android:layout_width="match_parent"
@@ -12,12 +13,68 @@
         android:background="#ffffff"
         app:tabIndicatorColor="@color/themeColor"
         app:tabSelectedTextColor="@color/themeColor"
-        app:tabTextColor="#7D7D7D"
-        />
+        app:tabTextColor="#7D7D7D" />
+
     <android.support.v4.view.ViewPager
         android:id="@+id/myViewPager"
-        android:background="@color/md_white"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/watch_tl"></android.support.v4.view.ViewPager>
+        android:layout_below="@id/watch_tl"
+        android:background="@color/md_white"></android.support.v4.view.ViewPager>
+
+    <android.support.percent.PercentRelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="bottom">
+  <android.support.v7.widget.Toolbar
+              android:id="@+id/tool_bar"
+              android:layout_width="match_parent"
+              android:layout_height="?actionBarSize"
+              android:background="@color/themeColor"
+
+              app:contentInsetStart="0.0dp"
+              app:layout_scrollFlags="enterAlways|scroll"
+              app:theme="@style/ToolbarStyle">
+
+              <RelativeLayout
+                  android:layout_width="match_parent"
+                  android:layout_height="match_parent">
+
+                  <Button
+                      android:id="@+id/bt_scanner"
+                      style="@style/button_blue_style"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_centerVertical="true"
+                      android:layout_marginLeft="22dp"
+                      android:layout_marginRight="14.0dip"
+                      android:background="@drawable/button_selector"
+                      android:text="扫码"
+                      android:textSize="20dp" />
+
+                  <TextView
+                      android:id="@+id/no_check_txtview"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_centerVertical="true"
+                      android:layout_marginLeft="90dp"
+                      android:layout_toRightOf="@+id/bt_scanner"
+                      android:text="132"
+                      android:textColor="@color/white"
+                      android:textSize="20dp" />
+
+                  <TextView
+                      android:id="@+id/do_check_txtview"
+                      android:layout_width="wrap_content"
+                      android:layout_height="wrap_content"
+                      android:layout_centerVertical="true"
+                      android:layout_marginRight="50dp"
+                      android:layout_toRightOf="@+id/no_check_txtview"
+                      android:text="/  102"
+                      android:textColor="@color/black"
+                      android:textSize="20dp" />
+              </RelativeLayout>
+          </android.support.v7.widget.Toolbar>
+    </android.support.percent.PercentRelativeLayout>
+
 </RelativeLayout>

@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    >
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="?actionBarSize"
+        android:theme="@style/Widget.AppCompat.Toolbar">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="?actionBarSize"
+                android:gravity="center_vertical"
+                android:text="注册"
+                android:textColor="@color/white"
+                android:textSize="25dp" />
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+       >
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="20dp"
+                android:orientation="vertical">
+
+                <EditText
+                    android:id="@+id/et_regist_user"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:hint="用户名"
+                    android:textColor="#9F9FA0"
+                    android:textColorHint="#9F9FA0"
+                   />
+
+                <EditText
+                    android:id="@+id/et_regist_password"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:hint="密码"
+                    android:textColor="#9F9FA0"
+                    android:textColorHint="#9F9FA0" />
+
+                <EditText
+                    android:id="@+id/et_regist_password_again"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:hint="再次输入密码"
+                    android:textColor="#9F9FA0"
+                    android:textColorHint="#9F9FA0"/>
+
+                <EditText
+                    android:id="@+id/et_regist_group"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:hint="队组"
+                    android:textColor="#9F9FA0"
+                    android:textColorHint="#9F9FA0" />
+
+                <EditText
+                    android:id="@+id/et_regist_telephone"
+                    android:layout_width="match_parent"
+                    android:layout_height="?actionBarSize"
+                    android:hint="电话（ 用于找回密码 ）"
+                    android:textColor="#9F9FA0"
+                    android:textColorHint="#9F9FA0" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingLeft="20dp"
+            android:paddingRight="20dp"
+            android:layout_alignParentBottom="true"
+            android:layout_marginBottom="10dp"
+            android:gravity="center">
+
+            <Button
+                android:id="@+id/bt_regist_save"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/buttonstyle"
+                android:text="注册"
+                android:textColor="@color/white"
+                tools:layout_editor_absoluteX="81dp"
+                tools:layout_editor_absoluteY="306dp" />
+
+            <Button
+                android:id="@+id/bt_regist_cancel"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="20dp"
+                android:layout_weight="1"
+                android:background="@drawable/buttonstyle"
+                android:text="取消"
+                android:textColor="@color/white"
+                tools:layout_editor_absoluteX="215dp"
+                tools:layout_editor_absoluteY="306dp" />
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

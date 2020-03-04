@@ -3,34 +3,35 @@
     <group
         android:id="@+id/top_group"
         android:checkableBehavior="single">
-    <item
-        android:id="@+id/navigation_sort"
-        android:icon="@drawable/ic_sort_24dp"
-        android:checked="true"
-        android:title="@string/navigation_menu_sort" />
-    <item
-        android:id="@+id/navigation_collection"
-        android:icon="@drawable/ic_collection_24dp"
-        android:title="@string/navigation_menu_collection" />
-    </group>
-    <group
-        android:id="@+id/bottom_group"
-        android:checkableBehavior="single">
         <item
-            android:id="@+id/navigation_share"
-            android:icon="@drawable/ic_share_24dp"
-            android:title="@string/navigation_menu_share" />
+            android:id="@+id/nacigation_menu_equipment_check"
+            android:checked="true"
+            android:icon="@drawable/vector_equipment_check"
+            android:title="@string/nacigation_menu_equipment_check" />
         <item
-            android:id="@+id/navigation_about_project"
-            android:icon="@drawable/ic_about_project_24dp"
+            android:id="@+id/navigation_work_alert"
+            android:checked="true"
+            android:icon="@drawable/vector_alter"
+            android:title="@string/navigation_menu_alert" />
+        <item
+            android:id="@+id/navigation_check"
+            android:checked="true"
+            android:icon="@drawable/vector_drawable_point"
+            android:title="@string/navigation_menu_check" />
+        <item
+            android:id="@+id/navigation_menu_information_deal"
+            android:checked="true"
+            android:icon="@drawable/vector_drawable_set"
+            android:title="@string/navigation_menu_information_deal" />
+        <item
+            android:id="@+id/navigation_about_authority"
+            android:checked="true"
+            android:icon="@drawable/vector_people"
             android:title="@string/navigation_menu_about_project" />
         <item
-            android:id="@+id/navigation_about_author"
-            android:icon="@drawable/ic__about_author_24dp"
-            android:title="@string/navigation_menu_about_author" />
+            android:id="@+id/navigation_cancel"
+            android:checked="true"
+            android:icon="@drawable/vector_cancel"
+            android:title="@string/cancleId" />
     </group>
-
-
-
-
 </menu>

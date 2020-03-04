@@ -19,8 +19,9 @@
             android:text="@string/navigation_menu_about_project"
             android:textColor="@color/grey" />
 
-        <RelativeLayout
+        <LinearLayout
             android:id="@+id/rl_introduce"
+            android:orientation="vertical"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/bg_card">
@@ -35,42 +36,35 @@
                 android:text="@string/navigation_menu_about_project_content"
                 android:textColor="@color/black"
                 android:textSize="13sp" />
-
-        </RelativeLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:layout_marginTop="12dp"
-            android:background="@color/grey" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="12dp"
-            android:layout_marginTop="12dp"
-            android:text="@string/thanks"
-            android:textColor="@color/grey" />
-
-        <RelativeLayout
-            android:id="@+id/rl_thanks"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@drawable/bg_card">
-
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="@dimen/text_margin"
-                android:autoLink="web"
-                android:lineSpacingExtra="2dp"
-                android:textColorLink="@color/colorAccent"
-                android:text="@string/thank_content"
-                android:textColor="@color/black"
-                android:textSize="13sp" />
-
-        </RelativeLayout>
-
-
+                android:layout_height="match_parent">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"
+                    android:autoLink="all"
+                    android:lineSpacingExtra="2dp"
+                    android:textColorLink="#0a80d1"
+                    android:text="帮助文档："
+                    android:textColor="@color/black"
+                    android:textSize="13sp" />
+                <ImageButton
+                    android:id="@+id/open_pdf"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:srcCompat="@drawable/ic_pdf"
+                    android:background="@android:color/transparent"
+                    android:paddingRight="10sp"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="@dimen/text_margin"
+                    android:lineSpacingExtra="2dp"
+                    android:text="@string/open_help_tip"
+                    android:textColor="@color/grey"
+                    android:textSize="10sp" />
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
-
 </android.support.v4.widget.NestedScrollView>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+android:layout_width="match_parent"
+android:layout_height="wrap_content"
+android:orientation="horizontal"
+android:paddingLeft="10sp"
+android:paddingRight="10sp">
+<LinearLayout
+    android:id="@+id/linear_container"
+    android:layout_width="0dp"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:orientation="horizontal"
+    android:background="@drawable/dotted_line_border"
+    android:minHeight="30sp">
+
+    <TextView
+        android:id="@+id/file_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:text="文件名"
+        android:textColor="@android:color/black"
+        />
+    <View
+        android:layout_width="1px"
+        android:layout_height="match_parent"
+        android:background="?android:attr/listDivider"
+        />
+    <!--<RelativeLayout-->
+    <!--android:layout_width="wrap_content"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:layout_weight="1">-->
+    <!--</RelativeLayout>-->
+
+    <ImageButton
+        android:id="@+id/delete_file"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        app:srcCompat="@drawable/ic_delete"
+        android:background="@android:color/transparent"
+        android:paddingRight="10sp"/>
+
+</LinearLayout>
+</LinearLayout>

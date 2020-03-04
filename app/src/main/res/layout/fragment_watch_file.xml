@@ -1,0 +1,176 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff6f6f6"
+    android:fadingEdge="none">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#fff6f6f6"
+        android:scrollbars="vertical"
+        android:fadingEdge="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:fadingEdge="none"
+                android:background="@drawable/cornersview"
+                android:layout_marginLeft="10.0sp"
+                android:layout_marginTop="10.0sp"
+                android:layout_marginRight="10.0sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10sp"
+                    android:paddingRight="10sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="源坐标类型"/>
+                    <Spinner
+                        android:id="@+id/file_spinner_source"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:entries="@array/spinnerCoord"
+                        android:gravity="left"
+                        android:paddingLeft="8dip"
+                        android:spinnerMode="dialog">
+                    </Spinner>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/input_file_path"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="请选择源坐标文件..."
+                        android:inputType="textPersonName"
+                        android:theme="@style/EditTextNum"
+                        android:textIsSelectable="true"/>
+
+                    <ImageButton
+                        android:id="@+id/open_source_file"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/vector_drawable_file"
+                        android:background="@android:color/transparent"
+                        android:paddingRight="10sp"/>
+
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:fadingEdge="none"
+                android:background="@drawable/cornersview"
+                android:layout_marginLeft="10.0sp"
+                android:layout_marginTop="10.0sp"
+                android:layout_marginRight="10.0sp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:paddingLeft="10sp"
+                    android:paddingRight="10sp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="目标坐标类型"/>
+                    <Spinner
+                        android:id="@+id/file_spinner_target"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:paddingLeft="8dip"
+                        android:spinnerMode="dialog">
+                    </Spinner>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <EditText
+                        android:id="@+id/output_file_path"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:ems="10"
+                        android:hint="请选择输出文件路径..."
+                        android:inputType="textPersonName"
+                        android:theme="@style/EditTextNum"
+                        android:textIsSelectable="true"/>
+
+                    <ImageButton
+                        android:id="@+id/open_target_file"
+                        android:layout_width="wrap_content"
+                        android:layout_height="match_parent"
+                        app:srcCompat="@drawable/vector_drawable_file"
+                        android:background="@android:color/transparent"
+                        android:paddingRight="10sp"/>
+
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="horizontal"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10.0sp"
+                android:layout_marginTop="10.0sp"
+                android:layout_marginRight="10.0sp">
+                <Button
+                    android:id="@+id/file_transBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:text="转换"
+                    android:layout_marginTop="2.0dip"
+                    android:layout_marginRight="14.0dip"
+                    android:layout_marginBottom="2.0dip"
+                    style="@style/button_blue_style"/>
+                <Button
+                    android:id="@+id/file_clearBtn"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1.0"
+                    android:text="查看转换后文件"
+                    android:layout_marginLeft="14.0dip"
+                    android:layout_marginTop="2.0dip"
+                    android:layout_marginBottom="2.0dip"
+                    style="@style/button_blue_style"/>
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </ScrollView>
+
+</LinearLayout>

@@ -6,7 +6,8 @@
     <color name="colorLightCoffee">@color/md_brown_500</color>
     <color name="colorDarkCoffee">@color/md_brown_700</color>
     <color name="colorAccent3">@color/md_deep_orange_500</color>
-    <color name="blue">#5677fc</color>
+    <color name="blue">#8EA2F4</color>
+    <color name="wathetblue">#CCFFFF</color>
     <color name="red">#e51c23</color>
     <color name="green">#259b24</color>
     <color name="yellow">#ffeb3b</color>
@@ -17,4 +18,8 @@
     <color name="toolbarTextColor">#ffffffff</color>
     <color name="normalBackground">#fff2f4f5</color>
     <color name="toolbarSubTextColor">#ffd4d4d4</color>
+    <color name="txt_color">#48495F</color>
+    <color name="text_color">#FF000000</color>
+    <color name="transparent">#00000000</color>
+    <color name="choose">#00FFB7</color>
 </resources>

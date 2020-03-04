@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+android:orientation="vertical"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+android:background="#fff6f6f6"
+android:fadingEdge="none">
+
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#fff6f6f6"
+    android:scrollbars="vertical"
+    android:fadingEdge="none">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:fadingEdge="none"
+            android:background="@drawable/cornersview"
+            android:layout_marginLeft="10.0sp"
+            android:layout_marginTop="10.0sp"
+            android:layout_marginRight="10.0sp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="源 坐 标 系 "/>
+                <Spinner
+                    android:id="@+id/spinner_source"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:paddingLeft="8dip"
+                    android:spinnerMode="dialog"
+                    android:entries="@array/spinnerCoord">
+                </Spinner>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="目标坐标系"/>
+                <Spinner
+                    android:id="@+id/spinner_target"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="left"
+                    android:paddingLeft="8dip"
+                    android:spinnerMode="dialog">
+                </Spinner>
+            </LinearLayout>
+            <EditText
+                android:id="@+id/offset_X"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberSigned|numberDecimal"
+                android:theme="@style/EditTextNum"
+                android:hint="X平移（米）"/>
+            <EditText
+                android:id="@+id/offset_Y"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberSigned|numberDecimal"
+                android:theme="@style/EditTextNum"
+                android:hint="Y平移（米）"/>
+            <EditText
+                android:id="@+id/offset_Z"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberSigned|numberDecimal"
+                android:theme="@style/EditTextNum"
+                android:hint="Z平移（米）"/>
+            <EditText
+                android:id="@+id/rotate_X"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberSigned|numberDecimal"
+                android:theme="@style/EditTextNum"
+                android:hint="X轴旋转（秒）"/>
+            <EditText
+                android:id="@+id/rotate_Y"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberSigned|numberDecimal"
+                android:theme="@style/EditTextNum"
+                android:hint="Y轴旋转（秒）"/>
+            <EditText
+                android:id="@+id/rotate_Z"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberSigned|numberDecimal"
+                android:theme="@style/EditTextNum"
+                android:hint="Z轴旋转（秒）"/>
+            <EditText
+                android:id="@+id/scale"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="numberSigned|numberDecimal"
+                android:theme="@style/EditTextNum"
+                android:hint="尺度"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10.0sp"
+            android:layout_marginTop="10.0sp"
+            android:layout_marginRight="10.0sp">
+            <Button
+                android:id="@+id/calc_set"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="设置"
+                android:layout_marginTop="2.0dip"
+                android:layout_marginRight="14.0dip"
+                android:layout_marginBottom="2.0dip"
+                style="@style/button_blue_style"/>
+            <Button
+                android:id="@+id/calc_del"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1.0"
+                android:text="删除"
+                android:layout_marginLeft="14.0dip"
+                android:layout_marginTop="2.0dip"
+                android:layout_marginBottom="2.0dip"
+                style="@style/button_blue_style"/>
+        </LinearLayout>
+
+    </LinearLayout>
+
+</ScrollView>
+
+</LinearLayout>
