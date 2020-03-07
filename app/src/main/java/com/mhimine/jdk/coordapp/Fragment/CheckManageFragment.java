@@ -1,12 +1,14 @@
 package com.mhimine.jdk.coordapp.Fragment;
 
+
 import android.graphics.Typeface;
+import android.os.Bundle;
 import android.os.Parcelable;
 import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,16 +16,17 @@ import android.widget.TextView;
 
 import com.mhimine.jdk.coordapp.R;
 
-import android.support.v4.app.Fragment;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class Fragment1 extends android.support.v4.app.Fragment implements View.OnClickListener, ViewPager.OnPageChangeListener {
-    private static Fragment1 fragment1;
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class CheckManageFragment extends Fragment implements ViewPager.OnPageChangeListener, View.OnClickListener {
+    private static CheckManageFragment checkManageFragment;
     @Bind(R.id.viewpager)
     ViewPager viewpager;
     @Bind(R.id.tablayout)
@@ -36,34 +39,45 @@ public class Fragment1 extends android.support.v4.app.Fragment implements View.O
     List<String> titleList = new ArrayList<>();
     private View v;
     private List<Fragment> fragmentlist = new ArrayList<>(2);
-    private MyFragmentPagerAdapter adapter;
+    private MyNewFragmentPagerAdapter adapter;
+
+
+    public static CheckManageFragment newInstance(){
+        if (checkManageFragment==null){
+            checkManageFragment=new CheckManageFragment();
+        }
+
+        return checkManageFragment;
+
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
-        v = inflater.inflate(R.layout.activity_fragment1, container, false);
-        Fragment_1 fragment_1 = new Fragment_1();
-        Fragment_2 fragment_2 = new Fragment_2();
-        Fragment_3 fragment_3 = new Fragment_3();
-        titleList.add("设备参数预警");
-        titleList.add("报警信息处理");
-        titleList.add("超时工作预警");
+        // Inflate the layout for this fragment
+        v = inflater.inflate(R.layout.fragment_check_manage, container, false);
+        PitCheckFragment pitCheckFragment=new PitCheckFragment();
+        CheckDeviceInfoFragment checkDeviceInfoFragment=new CheckDeviceInfoFragment();
+        ServiceLogFragment serviceLogFragment=new ServiceLogFragment();
+        UpLoaddingInformationFragment upLoaddingInformation=new UpLoaddingInformationFragment();
+        titleList.add("井下巡检");
+        titleList.add("设备信息");
+        titleList.add("维修记录");
+        titleList.add("信息上传");
         ButterKnife.bind(this, v);
-        fragmentlist.add(fragment_1);
-        fragmentlist.add(fragment_2);
-        fragmentlist.add(fragment_3);
-
+        fragmentlist.add(pitCheckFragment);
+        fragmentlist.add(checkDeviceInfoFragment);
+        fragmentlist.add(serviceLogFragment);
+        fragmentlist.add(upLoaddingInformation);
         initWidgets();
         return v;
     }
-
     private void initWidgets() {
-        adapter = new MyFragmentPagerAdapter(getChildFragmentManager());
+        adapter = new MyNewFragmentPagerAdapter(getChildFragmentManager());
        // getFragmentManager();
         viewpager.setAdapter(adapter);
         viewpager.addOnPageChangeListener(this);
-        viewpager.setOffscreenPageLimit(3);
+        viewpager.setOffscreenPageLimit(4);
 
         tabLayout.setTabMode(TabLayout.MODE_FIXED);
         tabLayout.setupWithViewPager(viewpager);
@@ -97,6 +111,11 @@ public class Fragment1 extends android.support.v4.app.Fragment implements View.O
                 watch_tv.setSelected(false);
                 viewpager.setCurrentItem(2);
                 break;
+            case 3:
+                watch_tv.setSelected(false);
+                viewpager.setCurrentItem(3);
+                break;
+
         }
     }
 
@@ -104,28 +123,19 @@ public class Fragment1 extends android.support.v4.app.Fragment implements View.O
     public void onPageScrollStateChanged(int state) {
 
     }
-
-    public interface fragment1Listener {
-        public void fragment1();
+public interface  checkManageFragmentListener{
+        public void checkManageFragment();
     }
-
     @Override
     public void onClick(View v) {
-        if (getActivity() instanceof fragment1Listener) {
-            ((fragment1Listener) getActivity()).fragment1();
+        if (getActivity() instanceof checkManageFragmentListener) {
+            ((checkManageFragmentListener) getActivity()).checkManageFragment();
         }
-
-    }
-    public static Fragment1 newInstance() {
-        if (fragment1 == null) {
-            fragment1 = new Fragment1();
-        }
-        return fragment1;
     }
 
-    private class MyFragmentPagerAdapter extends FragmentPagerAdapter {
+    public class MyNewFragmentPagerAdapter extends FragmentPagerAdapter {
 
-        public MyFragmentPagerAdapter(FragmentManager fm) {
+        public MyNewFragmentPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
@@ -153,5 +163,4 @@ public class Fragment1 extends android.support.v4.app.Fragment implements View.O
             super.restoreState(state, loader);
         }
     }
-
 }

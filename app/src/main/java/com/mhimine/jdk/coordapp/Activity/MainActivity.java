@@ -17,6 +17,7 @@ import com.mhimine.jdk.coordapp.Coord.TransParaSeven;
 import com.mhimine.jdk.coordapp.FileManage.FileUtils;
 import com.mhimine.jdk.coordapp.Fragment.AboutProjectFragment;
 import com.mhimine.jdk.coordapp.Fragment.AuthorityManagementFragment;
+import com.mhimine.jdk.coordapp.Fragment.CheckManageFragment;
 import com.mhimine.jdk.coordapp.Fragment.Fragment1;
 import com.mhimine.jdk.coordapp.Fragment.LoginDailogFragment;
 import com.mhimine.jdk.coordapp.Fragment.ParamSetFragment;
@@ -39,7 +40,7 @@ import butterknife.ButterKnife;
  * Created by JDK on 2016/8/28.
  */
 public class MainActivity extends BaseActivity implements ParamSetFragment.collectionDrawerIconListener, WatchAndShakeFragment.watchAndShakeFragmentListener, AboutProjectFragment.aboutProjectDrawerIconListener,
-        AuthorityManagementFragment.authorityManagementFragmentListener, Fragment1.fragment1Listener, LoginDailogFragment.MyListener,WorkAlertFragment.workAlertFragmentListener {
+        AuthorityManagementFragment.authorityManagementFragmentListener, Fragment1.fragment1Listener, LoginDailogFragment.MyListener,WorkAlertFragment.workAlertFragmentListener,CheckManageFragment.checkManageFragmentListener{
     @Bind(R.id.drawer)
     DrawerLayout mDrawerLayout;
     @Bind(R.id.navigation_view)
@@ -48,7 +49,7 @@ public class MainActivity extends BaseActivity implements ParamSetFragment.colle
     private boolean isOpen;
     private WatchAndShakeFragment watchAndShakeFragment;
     private LoginDailogFragment loginDailogFragment;
-    private ParamSetFragment paramSetFragment;
+    private CheckManageFragment checkManageFragment;
     private WorkAlertFragment workAlertFragment;
     private Fragment1 fragment1;
     private AboutProjectFragment aboutProjectFragment;
@@ -160,7 +161,7 @@ public class MainActivity extends BaseActivity implements ParamSetFragment.colle
                         break;
                     case R.id.navigation_work_alert:
                         if (workAlertFragment == null) {
-                            workAlertFragment = workAlertFragment.newInstance(MainActivity.this);
+                            workAlertFragment = WorkAlertFragment.newInstance(MainActivity.this);
                         }
                         switchFragment(currentFragment, workAlertFragment);
                         break;
@@ -171,10 +172,10 @@ public class MainActivity extends BaseActivity implements ParamSetFragment.colle
                         switchFragment(currentFragment, fragment1);
                         break;
                     case R.id.navigation_check:
-                        if (watchAndShakeFragment == null) {
-                            watchAndShakeFragment = WatchAndShakeFragment.newInstance();
+                        if (checkManageFragment == null) {
+                            checkManageFragment = CheckManageFragment.newInstance();
                         }
-                        switchFragment(currentFragment, watchAndShakeFragment);
+                        switchFragment(currentFragment, checkManageFragment);
                         break;
                     case R.id.navigation_about_authority:
                         if (authorityManagementFragment == null) {
@@ -332,6 +333,14 @@ public class MainActivity extends BaseActivity implements ParamSetFragment.colle
                 switchFragment(currentFragment, watchAndShakeFragment);
 
             }
+        }
+    }
+
+    @Override
+    public void checkManageFragment() {
+        if (!isOpen) {
+            //LEFT和RIGHT指的是现存DrawerLayout的方向
+            mDrawerLayout.openDrawer(Gravity.LEFT);
         }
     }
 }

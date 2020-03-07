@@ -1,18 +1,22 @@
 package com.mhimine.jdk.coordapp.Activity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.hardware.Camera;
 import android.media.CamcorderProfile;
 import android.media.MediaPlayer;
 import android.media.MediaRecorder;
+import android.net.Uri;
 import android.os.Build;
 import android.os.Environment;
 import android.os.Handler;
 import android.os.SystemClock;
+import android.provider.MediaStore;
 import android.support.v4.content.FileProvider;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Surface;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
@@ -38,7 +42,7 @@ public class VideoActivity extends AppCompatActivity {
     public View start;
     public View stop;
     private SurfaceView surfaceView;
-    private String videoFile;
+    public static final int TAKE_VIDEO= 1;
     MediaRecorder mediaRecorder;
     private android.hardware.Camera camera;
     private boolean isRecord = false;//记录录像状态
@@ -49,7 +53,14 @@ public class VideoActivity extends AppCompatActivity {
     private String path;
     Chronometer ch;
     private int flag = 0;
-
+    private Uri mVideoUri;
+    private String TAG;
+    String cameraPath = Environment.getExternalStorageDirectory() + File.separator
+            + Environment.DIRECTORY_DCIM + File.separator + "Camera" + File.separator;//系统相册的路径
+    SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss", Locale.CHINA);
+    Date date = new Date(System.currentTimeMillis());
+    String fileName = format.format(date);
+    File outputVideo = new File(cameraPath, fileName + ".mp4");
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -121,23 +132,18 @@ public class VideoActivity extends AppCompatActivity {
 
     private void init() {
         start = findViewById(R.id.bt_start);
-        stop =  findViewById(R.id.bt_stop);
-        try {
-            start.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    if (isRecord == false) {
-                        stop.setVisibility(View.VISIBLE);
-                        start.setVisibility(View.INVISIBLE);
-                        startRecord();
+        stop = findViewById(R.id.bt_stop);
+        start.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isRecord == false) {
+                    stop.setVisibility(View.VISIBLE);
+                    start.setVisibility(View.INVISIBLE);
+                    startRecord();
 
-                    }
                 }
-            });
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
+            }
+        });
         stop.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -147,12 +153,9 @@ public class VideoActivity extends AppCompatActivity {
                 isRecord = false;
             }
         });
-
     }
 
-
     private void stopRecord() {
-
         mediaRecorder.stop();//停止视频采集
         mediaRecorder.reset();//删除记录器的配置设置
         //当结束录制之后，就将当前的资源都释放
@@ -170,58 +173,84 @@ public class VideoActivity extends AppCompatActivity {
     }
 
     private void startRecord() {
-        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss", Locale.CHINA);
-        Date date = new Date(System.currentTimeMillis());
-        String fileName = format.format(date);
-        // path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/hello.3gp";
-        String bath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/CameraDemo/video/";
-        File file = new File(bath);
-        if (!file.exists()) {
-            boolean flag = file.mkdirs();
+//        SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss", Locale.CHINA);
+//        Date date = new Date(System.currentTimeMillis());
+//        String fileName = format.format(date);
+//        // path = Environment.getExternalStorageDirectory().getAbsolutePath() + "/hello.3gp";
+//        String bath = Environment.getExternalStorageDirectory().getAbsolutePath() + "/CameraDemo/video/";
+//        File file = new File(bath);
+//        if (!file.exists()) {
+//            boolean flag = file.mkdirs();
+//        }
+//        path = Environment.getExternalStorageDirectory().getAbsolutePath() +
+//                "/CameraDemo/video/" + fileName + ".3gp";
+//        //先释放被占用的camera，在将其设置为mediaRecorder所用的camera
+//
+//        camera.unlock();
+//        CamcorderProfile mProfile = CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH);
+//        mediaRecorder.setCamera(camera);
+//
+//        mediaRecorder.setPreviewDisplay(surfaceView.getHolder().getSurface());
+//        //设置音频的来源  麦克风
+//        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
+//        //设置视频的来源
+//        mediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
+//        mediaRecorder.setOutputFormat(mProfile.fileFormat);
+//        mediaRecorder.setAudioEncoder(mProfile.audioCodec);
+//        mediaRecorder.setVideoEncoder(mProfile.videoCodec);
+//        //  mediaRecorder.setOutputFile("/sdcard/FBVideo.3gp");
+//        mediaRecorder.setVideoSize(mProfile.videoFrameWidth, mProfile.videoFrameHeight);
+//        mediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
+//        mediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);
+//        mediaRecorder.setAudioEncodingBitRate(mProfile.audioBitRate);
+//        mediaRecorder.setAudioChannels(mProfile.audioChannels);
+//        mediaRecorder.setAudioSamplingRate(mProfile.audioSampleRate);
+//
+//        //设置保存的路径
+//        mediaRecorder.setOutputFile(path);
+//        //开始录制
+//        try {
+//            mediaRecorder.prepare();
+//            mediaRecorder.start();
+//            ch = (Chronometer) findViewById(R.id.test);
+//            //设置开始计时时间
+//            ch.setBase(SystemClock.elapsedRealtime());
+//            //启动计时器
+//            ch.start();
+////            pause.setEnabled(true);
+////            restart.setEnabled(false);
+//            start.setEnabled(false);
+//            Toast.makeText(VideoActivity.this, "开始录制", Toast.LENGTH_SHORT).show();
+//            isRecord = true;
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+        Intent intent = new Intent();
+        //指定动作，启动相机
+        intent.setAction(MediaStore.ACTION_VIDEO_CAPTURE);
+        intent.addCategory(Intent.CATEGORY_DEFAULT);
+        Log.d(TAG, "指定启动相机动作，完成。");
+
+        Log.d(TAG, "创建视频文件结束。");
+        //添加权限
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        Log.d(TAG, "添加权限。");
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            //做一些处理            //获取uri
+            mVideoUri = FileProvider.getUriForFile(this, "czz.provider", outputVideo);
+        } else {
+            //在版本低于此的时候，做一些处理
+            mVideoUri = Uri.fromFile(outputVideo);
         }
-        path = Environment.getExternalStorageDirectory().getAbsolutePath() +
-                "/CameraDemo/video/" + fileName + ".3gp";
-        //先释放被占用的camera，在将其设置为mediaRecorder所用的camera
+        Log.d(TAG, "根据视频文件路径获取uri。");
+        //将uri加入到额外数据
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, mVideoUri);
+        Log.d(TAG, "将uri加入启动相机的额外数据。");
+        Log.d(TAG, "启动相机...");
+        //启动相机并要求返回结果
+        startActivityForResult(intent, TAKE_VIDEO);
+        Log.d(TAG, "拍摄中...");
 
-        camera.unlock();
-        CamcorderProfile mProfile = CamcorderProfile.get(CamcorderProfile.QUALITY_HIGH);
-        mediaRecorder.setCamera(camera);
-
-        mediaRecorder.setPreviewDisplay(surfaceView.getHolder().getSurface());
-        //设置音频的来源  麦克风
-        mediaRecorder.setAudioSource(MediaRecorder.AudioSource.MIC);
-        //设置视频的来源
-        mediaRecorder.setVideoSource(MediaRecorder.VideoSource.CAMERA);
-        mediaRecorder.setOutputFormat(mProfile.fileFormat);
-        mediaRecorder.setAudioEncoder(mProfile.audioCodec);
-        mediaRecorder.setVideoEncoder(mProfile.videoCodec);
-        //  mediaRecorder.setOutputFile("/sdcard/FBVideo.3gp");
-        mediaRecorder.setVideoSize(mProfile.videoFrameWidth, mProfile.videoFrameHeight);
-        mediaRecorder.setVideoFrameRate(mProfile.videoFrameRate);
-        mediaRecorder.setVideoEncodingBitRate(mProfile.videoBitRate);
-        mediaRecorder.setAudioEncodingBitRate(mProfile.audioBitRate);
-        mediaRecorder.setAudioChannels(mProfile.audioChannels);
-        mediaRecorder.setAudioSamplingRate(mProfile.audioSampleRate);
-
-        //设置保存的路径
-        mediaRecorder.setOutputFile(path);
-        //开始录制
-        try {
-            mediaRecorder.prepare();
-            mediaRecorder.start();
-            ch = (Chronometer) findViewById(R.id.test);
-            //设置开始计时时间
-            ch.setBase(SystemClock.elapsedRealtime());
-            //启动计时器
-            ch.start();
-//            pause.setEnabled(true);
-//            restart.setEnabled(false);
-            start.setEnabled(false);
-            Toast.makeText(VideoActivity.this, "开始录制", Toast.LENGTH_SHORT).show();
-            isRecord = true;
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
 
     }
 

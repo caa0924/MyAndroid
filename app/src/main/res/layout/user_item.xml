@@ -8,9 +8,10 @@
         android:id="@+id/equip"
         android:layout_width="100dp"
         android:layout_height="50dp"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="-20dp"
         android:layout_marginTop="3dp"
-        android:layout_marginBottom="3dp"
-        android:layout_marginLeft="-20dp" />
+        android:layout_marginBottom="3dp" />
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -26,8 +27,10 @@
                 android:id="@+id/tv_device_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="7dp"
+                android:layout_alignStart="@+id/ll_number"
+                android:layout_alignBottom="@+id/ll_number"
                 android:layout_marginLeft="5dp"
+                android:layout_marginTop="7dp"
                 android:text="设备号："
                 android:textColor="@color/red"
                 android:textSize="12dp" />
@@ -46,12 +49,13 @@
                 android:id="@+id/tv_check_number"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:layout_alignBottom="@+id/ll_number"
                 android:layout_marginTop="7dp"
-                android:paddingLeft="@dimen/dp_10"
                 android:layout_toRightOf="@+id/device_number"
-                android:textSize="12dp"
+                android:paddingLeft="@dimen/dp_10"
                 android:text="巡检次数："
-                android:textColor="@color/red" />
+                android:textColor="@color/red"
+                android:textSize="12dp" />
             <TextView
                 android:id="@+id/check_number"
                 android:layout_width="wrap_content"
@@ -77,6 +81,7 @@
                 android:layout_marginTop="11dp"
                 android:text="设备巡检时间："
                 android:textColor="@color/red"
+                android:layout_marginLeft="5dp"
                 android:textSize="12dp"
                 android:layout_marginBottom="8dp"/>
 

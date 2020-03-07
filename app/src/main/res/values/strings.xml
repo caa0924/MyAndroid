@@ -81,4 +81,9 @@
     <string name="surveyAlert">鉴定计划预警</string>
     <string name="outofdate">过期未检</string>
     <string name="overSurvey">结束鉴定</string>
+    <string name="check_photo">图片：</string>
+    <string name="check_video">视频：</string>
+    <string name="check_voice">音频：</string>
+    <string name="check_notes">备注：</string>
+    <string name="chooseVoice">选择</string>
 </resources>
