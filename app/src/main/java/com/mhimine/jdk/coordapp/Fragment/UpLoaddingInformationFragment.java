@@ -13,9 +13,6 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
-import com.mhimine.jdk.coordapp.Coord.CoordTransform;
-import com.mhimine.jdk.coordapp.Coord.Point;
-import com.mhimine.jdk.coordapp.Coord.TransParaSeven;
 import com.mhimine.jdk.coordapp.R;
 import com.mhimine.jdk.coordapp.Utils.Convert;
 

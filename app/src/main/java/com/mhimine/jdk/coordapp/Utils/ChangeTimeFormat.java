@@ -1,11 +1,5 @@
 package com.mhimine.jdk.coordapp.Utils;
 
-import android.databinding.BindingConversion;
-
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 /**
  * Created by JDK on 2016/8/11.
  */

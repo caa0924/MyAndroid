@@ -58,7 +58,7 @@ import java.util.Map;
 
 public class DeviceDetailsActivity extends AppCompatActivity {
     String namespace = "http://tempuri.org/";
-    String Url = "http://47.92.68.57:8099/WebServices_Device_Management.asmx?WSDL";
+    String Url = "http://47.92.68.57:8099/WebService_MySql_Eq_Management.asmx?WSDL";
     String methodName = "SelectByDeviceId";
     public static final int TAKE_PHOTO = 1;
     public static final int CHOOSE_PHOTO = 2;

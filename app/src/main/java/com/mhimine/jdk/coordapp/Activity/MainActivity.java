@@ -1,7 +1,6 @@
 package com.mhimine.jdk.coordapp.Activity;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
@@ -11,26 +10,21 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
-import android.widget.Toast;
 
-import com.mhimine.jdk.coordapp.Coord.TransParaSeven;
-import com.mhimine.jdk.coordapp.FileManage.FileUtils;
+
 import com.mhimine.jdk.coordapp.Fragment.AboutProjectFragment;
 import com.mhimine.jdk.coordapp.Fragment.AuthorityManagementFragment;
 import com.mhimine.jdk.coordapp.Fragment.CheckManageFragment;
 import com.mhimine.jdk.coordapp.Fragment.Fragment1;
+
 import com.mhimine.jdk.coordapp.Fragment.LoginDailogFragment;
-import com.mhimine.jdk.coordapp.Fragment.ParamSetFragment;
 import com.mhimine.jdk.coordapp.Fragment.WatchAndShakeFragment;
-import com.mhimine.jdk.coordapp.Coord.CoordTransform;
 import com.mhimine.jdk.coordapp.Fragment.WorkAlertFragment;
 import com.mhimine.jdk.coordapp.Model.Activation;
 import com.mhimine.jdk.coordapp.R;
 import com.mhimine.jdk.coordapp.Utils.BackHandlerHelper;
 import com.mhimine.jdk.coordapp.Utils.SnackBarUtils;
 import com.mhimine.jdk.coordapp.Utils.Utils;
-
-import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -39,7 +33,7 @@ import butterknife.ButterKnife;
 /**
  * Created by JDK on 2016/8/28.
  */
-public class MainActivity extends BaseActivity implements ParamSetFragment.collectionDrawerIconListener, WatchAndShakeFragment.watchAndShakeFragmentListener, AboutProjectFragment.aboutProjectDrawerIconListener,
+public class MainActivity extends BaseActivity implements WatchAndShakeFragment.watchAndShakeFragmentListener, AboutProjectFragment.aboutProjectDrawerIconListener,
         AuthorityManagementFragment.authorityManagementFragmentListener, Fragment1.fragment1Listener, LoginDailogFragment.MyListener,WorkAlertFragment.workAlertFragmentListener,CheckManageFragment.checkManageFragmentListener{
     @Bind(R.id.drawer)
     DrawerLayout mDrawerLayout;
@@ -101,7 +95,7 @@ public class MainActivity extends BaseActivity implements ParamSetFragment.colle
             }
         });
         initNavigationViewItemSelected();
-        restoreParasData();
+
     }
 
     public void showDefaultFragment() {
@@ -140,6 +134,7 @@ public class MainActivity extends BaseActivity implements ParamSetFragment.colle
             if (watchAndShakeFragment == null) {
                 watchAndShakeFragment = WatchAndShakeFragment.newInstance();
             }
+
             addFragment(R.id.activity_main, watchAndShakeFragment);
             currentFragment = watchAndShakeFragment;
         }
@@ -214,13 +209,6 @@ public class MainActivity extends BaseActivity implements ParamSetFragment.colle
         }
     }
 
-    @Override
-    public void collectionDrawerIcon() {
-        if (!isOpen) {
-            //LEFT和RIGHT指的是现存DrawerLayout的方向
-            mDrawerLayout.openDrawer(Gravity.LEFT);
-        }
-    }
 
     @Override
     public void watchAndShakeFragment() {
@@ -272,7 +260,7 @@ public class MainActivity extends BaseActivity implements ParamSetFragment.colle
     }
 
     private void exitApp() {
-        saveParasData();
+
         finish();
         System.exit(0);
     }
@@ -285,24 +273,6 @@ public class MainActivity extends BaseActivity implements ParamSetFragment.colle
     @Override
     protected void onStop() {
         super.onStop();
-        saveParasData();
-    }
-
-    private void saveParasData() {
-        String context = FileUtils.saveParaFile(this);
-        if (!context.equals("")) {
-            FileUtils.SaveInStorage(this, "paraData", context);
-        }
-    }
-
-    private void restoreParasData() {
-        String content = FileUtils.getInStorage(this, "paraData");
-        if (!content.equals("") && content != null) {
-            Map<String, TransParaSeven> sevenParames = FileUtils.restoreMapFromFile(this, content);
-            if (sevenParames.size() > 0) {
-                CoordTransform.SevenParames = sevenParames;
-            }
-        }
     }
 
 
@@ -326,7 +296,7 @@ public class MainActivity extends BaseActivity implements ParamSetFragment.colle
     @Override
     public void sendContent(String info) {
         if (info != null && !"".equals(info)) {
-            if (Integer.parseInt(info) == -1) {
+            if (Integer.parseInt(info) == 1) {
                 if (watchAndShakeFragment == null) {
                     watchAndShakeFragment = WatchAndShakeFragment.newInstance();
                 }

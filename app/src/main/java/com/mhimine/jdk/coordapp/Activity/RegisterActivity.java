@@ -29,7 +29,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
     private EditText et_regist_telephone;
     private Button bt_regist_save, bt_regist_cancel;
     String namespace = "http://tempuri.org/";
-    String Url = "http://47.92.68.57:8099/WebServices_Device_Management.asmx?WSDL";
+    String Url = "http://47.92.68.57:8099/WebService_MySql_Eq_Management.asmx?WSDL";
     String methodName = "InsertIntoTbUser";
     Map<String, Object> params = new HashMap<>();
 

@@ -27,7 +27,7 @@ import java.util.Map;
 public class DeviceManagerDetailActivity extends AppCompatActivity {
 
     String namespace = "http://tempuri.org/";
-    String Url = "http://47.92.68.57:8099/WebServices_Device_Management.asmx?WSDL";
+    String Url = "http://47.92.68.57:8099/WebService_MySql_Eq_Management.asmx?WSDL";
     String methodName = "SelectDeviceInfo";
     private List<String> equiplist = new ArrayList<>();
     ArrayList<String> equip_list = new ArrayList<String>();

@@ -2,9 +2,7 @@ package com.mhimine.jdk.coordapp.Utils;
 
 import android.content.Context;
 import android.os.Environment;
-import android.support.annotation.NonNull;
 import android.telephony.TelephonyManager;
-import android.text.TextUtils;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -18,7 +16,6 @@ import java.io.Writer;
 import java.net.NetworkInterface;
 import java.net.SocketException;
 import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 import java.util.UUID;
 
 /**

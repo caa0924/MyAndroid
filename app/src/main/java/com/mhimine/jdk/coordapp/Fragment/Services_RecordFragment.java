@@ -14,10 +14,6 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
-
-import com.mhimine.jdk.coordapp.Coord.CoordTransform;
-import com.mhimine.jdk.coordapp.Coord.Point;
-import com.mhimine.jdk.coordapp.Coord.TransParaSeven;
 import com.mhimine.jdk.coordapp.R;
 import com.mhimine.jdk.coordapp.Utils.Convert;
 
@@ -58,39 +54,7 @@ public class Services_RecordFragment extends Fragment {
         TargetY.setKeyListener(null);
         TargetZ.setKeyListener(null);
 
-        transButton.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v) {
-                String strSourceX = sourceX.getText().toString();
-                double sourceX = Convert.parseDouble(strSourceX);
 
-                String strSourceY = sourceY.getText().toString();
-                double sourceY = Convert.parseDouble(strSourceY);
-
-                String strSourceZ = sourceZ.getText().toString();
-                double sourceZ = Convert.parseDouble(strSourceZ);
-
-                Point point = new Point(sourceX, sourceY, sourceZ);
-                setPointSourceView(point);
-
-                String curCoordTransType = getCoordType();
-                if (curCoordTransType == null) return;
-                if (CoordTransform.SevenParames.containsKey(curCoordTransType)){
-                    TransParaSeven transParaSeven = CoordTransform.SevenParames.get(curCoordTransType);
-                    if (!CoordTransform.isRange(point)) {
-                        Toast.makeText(v.getContext().getApplicationContext(),"该坐标超出矿区范围，无法转换！",Toast.LENGTH_SHORT).show();
-                        return;
-                    }
-                    Point newPoint = CoordTransform.BolsaSevenParameters(transParaSeven, point);
-                    setPointTargetView(newPoint);
-                }
-                else {
-                    TargetX.getText().clear();
-                    TargetY.getText().clear();
-                    TargetZ.getText().clear();
-                    Toast.makeText(v.getContext().getApplicationContext(),"未设置该转换的转换参数，请先设置转换参数！",Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
 
         clearBtn.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v) {
@@ -130,17 +94,7 @@ public class Services_RecordFragment extends Fragment {
         return view;
     }
 
-    private void setPointTargetView(Point point){
-        TargetX.setText(Convert.parseString(point.getX()));
-        TargetY.setText(Convert.parseString(point.getY()));
-        TargetZ.setText(Convert.parseString(point.getZ()));
-    }
-
-    private void setPointSourceView(Point point){
-        sourceX.setText(Convert.parseString(point.getX()));
-        sourceY.setText(Convert.parseString(point.getY()));
-        sourceZ.setText(Convert.parseString(point.getZ()));
-    }
+    
 
     private String getCoordType(){
         String spSouStr = spinnerSource.getSelectedItem().toString();

@@ -22,4 +22,6 @@
     <color name="text_color">#FF000000</color>
     <color name="transparent">#00000000</color>
     <color name="choose">#00FFB7</color>
+    <color name="textColorHint">#A0A0A0</color>
+    <color name="textColor">#202020</color>
 </resources>

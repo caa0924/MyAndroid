@@ -1,20 +1,14 @@
 package com.mhimine.jdk.coordapp.Fragment;
 
-import android.content.ActivityNotFoundException;
 import android.content.Intent;
-import android.graphics.pdf.PdfDocument;
-import android.graphics.pdf.PdfRenderer;
-import android.media.MediaPlayer;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.ParcelFileDescriptor;
 import android.support.annotation.Nullable;
 import android.support.design.widget.AppBarLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -23,11 +17,7 @@ import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.mhimine.jdk.coordapp.FileManage.FileUtils;
 import com.mhimine.jdk.coordapp.R;
-
-import java.io.File;
-import java.io.InputStream;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;

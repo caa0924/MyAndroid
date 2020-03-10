@@ -31,7 +31,7 @@ import java.util.Map;
 public class Fragment_1 extends Fragment {
     private List<DeviceCheck> userList = new ArrayList<>();
     String namespace = "http://tempuri.org/";
-    String Url = "http://47.92.68.57:8099/WebServices_Device_Management.asmx?WSDL";
+    String Url = "http://47.92.68.57:8099/WebService_MySql_Eq_Management.asmx?WSDL";
     String methodName = "Select";
     private View view;
     public static Fragment_1 newInstance() {

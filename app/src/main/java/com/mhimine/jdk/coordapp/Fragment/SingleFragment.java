@@ -13,7 +13,6 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
-
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.mhimine.jdk.coordapp.Activity.DeviceDetailsActivity;
 import com.mhimine.jdk.coordapp.Activity.MainActivity;
@@ -36,7 +35,7 @@ import java.util.Map;
 public class SingleFragment extends Fragment {
     private List<DeviceCheck> userList = new ArrayList<>();
     String namespace = "http://tempuri.org/";
-    String Url = "http://47.92.68.57:8099/WebServices_Device_Management.asmx?WSDL";
+    String Url = "http://47.92.68.57:8099/WebService_MySql_Eq_Management.asmx?WSDL";
     String methodName = "Select";
     private View view;
 

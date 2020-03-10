@@ -1,48 +1,24 @@
 package com.mhimine.jdk.coordapp.Fragment;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
-import android.content.res.Resources;
-import android.net.Uri;
 import android.os.Bundle;
-import android.os.Environment;
 import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ListView;
-import android.widget.Spinner;
-import android.widget.Toast;
-import com.chad.library.adapter.base.BaseQuickAdapter;
-import com.chad.library.adapter.base.callback.ItemDragAndSwipeCallback;
+
 import com.mhimine.jdk.coordapp.Activity.DeviceDetailsActivity;
 import com.mhimine.jdk.coordapp.Adapter.DeviceCheckAdapter;
-import com.mhimine.jdk.coordapp.Dialog.SaveTxtDialog;
 import com.mhimine.jdk.coordapp.ObjectClass.DeviceCheck;
 import com.mhimine.jdk.coordapp.R;
-import com.mhimine.jdk.coordapp.Utils.Convert;
-import com.mhimine.jdk.coordapp.Coord.Point;
-import com.mhimine.jdk.coordapp.Coord.TransParaSeven;
-import com.mhimine.jdk.coordapp.Adapter.ItemDragAdapter;
-import com.mhimine.jdk.coordapp.Coord.CoordTransform;
-import com.mhimine.jdk.coordapp.FileManage.FileUtils;
 import com.mhimine.jdk.coordapp.Utils.Utils;
-
 import org.ksoap2.serialization.SoapObject;
 
-import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -57,7 +33,7 @@ public class MultiFragment extends Fragment  {
 
     private List<DeviceCheck> userList = new ArrayList<>();
     String namespace = "http://tempuri.org/";
-    String Url = "http://47.92.68.57:8099/WebServices_Device_Management.asmx?WSDL";
+    String Url = "http://47.92.68.57:8099/WebService_MySql_Eq_Management.asmx?WSDL";
     String methodName = "Select";
 
 

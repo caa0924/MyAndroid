@@ -6,6 +6,7 @@ import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.Toolbar;
+import android.text.TextPaint;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +27,10 @@ public class WorkAlertFragment extends Fragment implements View.OnClickListener 
     private View view;
     @Bind(R.id.drawerIcon)
     TextView drawerIcon;
-
+    @Bind(R.id.tv_keep_alert)
+    TextView tv_keepAlert;
+    @Bind(R.id.tv_check_alert)
+    TextView tv_checkAlert;
 
 
     public interface workAlertFragmentListener {
@@ -40,6 +44,10 @@ public class WorkAlertFragment extends Fragment implements View.OnClickListener 
 
         view = inflater.inflate(R.layout.fragment_work_alert, container, false);
         ButterKnife.bind(this, view);
+        TextPaint tp = tv_keepAlert.getPaint();
+        TextPaint tpp = tv_checkAlert.getPaint();
+        tp.setFakeBoldText(true);
+        tpp.setFakeBoldText(true);
         Typeface typeface = Typeface.createFromAsset(getActivity().getAssets(), "iconfont.ttf");
         drawerIcon.setTypeface(typeface);
         drawerIcon.setOnClickListener(this);
