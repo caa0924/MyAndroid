@@ -24,4 +24,6 @@
     <color name="choose">#00FFB7</color>
     <color name="textColorHint">#A0A0A0</color>
     <color name="textColor">#202020</color>
+    <color name="layout_dark">#9C9B9B</color>
+    <color name="layout_light">#ffffffff</color>
 </resources>

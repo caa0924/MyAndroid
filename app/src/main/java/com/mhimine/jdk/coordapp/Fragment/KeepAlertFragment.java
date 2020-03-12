@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 
 import com.mhimine.jdk.coordapp.R;
 
+import butterknife.Bind;
+
 /**
  * A simple {@link Fragment} subclass.
  */

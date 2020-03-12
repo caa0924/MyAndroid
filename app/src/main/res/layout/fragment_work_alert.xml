@@ -259,7 +259,9 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline21"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view">
+        app:layout_constraintTop_toBottomOf="@+id/view"
+        android:background="@drawable/layout_selector"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_outOfDate"
@@ -364,11 +366,12 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/alert_content"
+            android:contentDescription="TODO"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline103"
             app:layout_constraintStart_toStartOf="@+id/guideline102"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/alert_content" />
     </android.support.constraint.ConstraintLayout>
 
 
@@ -381,7 +384,9 @@
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/guideline25"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/cl_outOfDate">
+        app:layout_constraintTop_toTopOf="@+id/guideline21"
+        android:background="@drawable/layout_selector"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_due_today"
@@ -435,12 +440,12 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/vector_right"
+            android:contentDescription="TODO"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline106"
             app:layout_constraintStart_toStartOf="@+id/guideline107"
             app:layout_constraintTop_toTopOf="parent"
-            android:contentDescription="TODO" />
+            app:srcCompat="@drawable/vector_right" />
 
         <android.support.constraint.Guideline
             android:id="@+id/guideline107"
@@ -487,11 +492,11 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/alert_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline109"
             app:layout_constraintStart_toStartOf="@+id/guideline108"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/alert_content" />
     </android.support.constraint.ConstraintLayout>
 
     <android.support.constraint.ConstraintLayout
@@ -502,7 +507,9 @@
         android:layout_marginBottom="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/guideline23"
-        app:layout_constraintTop_toTopOf="@+id/guideline25">
+        app:layout_constraintTop_toTopOf="@+id/guideline25"
+        android:background="@drawable/layout_selector"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_due_tomorrow"
@@ -557,7 +564,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/vector_right"
+            app:srcCompat="@drawable/vector_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline112"
             app:layout_constraintStart_toStartOf="@+id/guideline113"
@@ -609,7 +616,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/alert_content"
+            app:srcCompat="@drawable/alert_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline115"
             app:layout_constraintStart_toStartOf="@+id/guideline114"
@@ -644,7 +651,9 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline26"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline22">
+        app:layout_constraintTop_toTopOf="@+id/guideline22"
+        android:background="@drawable/layout_selector"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv__due_next_mouth"
@@ -732,7 +741,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/alert_content"
+            app:srcCompat="@drawable/alert_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline121"
             app:layout_constraintStart_toStartOf="@+id/guideline120"
@@ -747,7 +756,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/vector_right"
+            app:srcCompat="@drawable/vector_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline118"
             app:layout_constraintStart_toStartOf="@+id/guideline119"
@@ -764,7 +773,9 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline27"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline26">
+        app:layout_constraintTop_toTopOf="@+id/guideline26"
+        android:background="@drawable/layout_selector"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_end_up_keep"
@@ -817,7 +828,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/vector_right"
+            app:srcCompat="@drawable/vector_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline124"
             app:layout_constraintStart_toStartOf="@+id/guideline125"
@@ -867,7 +878,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/alert_content"
+            app:srcCompat="@drawable/alert_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline127"
             app:layout_constraintStart_toStartOf="@+id/guideline126"
@@ -882,7 +893,9 @@
         android:layout_marginBottom="8dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toTopOf="@+id/guideline22"
-        app:layout_constraintTop_toTopOf="@+id/guideline23">
+        app:layout_constraintTop_toTopOf="@+id/guideline23"
+        android:background="@drawable/layout_selector"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_due_mouth"
@@ -935,7 +948,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/vector_right"
+            app:srcCompat="@drawable/vector_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline130"
             app:layout_constraintStart_toStartOf="@+id/guideline131"
@@ -985,7 +998,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/alert_content"
+            app:srcCompat="@drawable/alert_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/tv_due_mouth"
             app:layout_constraintStart_toStartOf="@+id/guideline132"
@@ -1027,7 +1040,9 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline31"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/view2">
+        app:layout_constraintTop_toBottomOf="@+id/view2"
+        android:background="@drawable/layout_selector"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_checkOutOfDate"
@@ -1080,7 +1095,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/vector_right"
+            app:srcCompat="@drawable/vector_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline136"
             app:layout_constraintStart_toStartOf="@+id/guideline137"
@@ -1130,7 +1145,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/alert_content"
+            app:srcCompat="@drawable/alert_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline139"
             app:layout_constraintStart_toStartOf="@+id/guideline138"
@@ -1147,7 +1162,9 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline30"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline31">
+        app:layout_constraintTop_toTopOf="@+id/guideline31"
+        android:background="@drawable/layout_selector"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_check_due_today"
@@ -1200,7 +1217,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/vector_right"
+            app:srcCompat="@drawable/vector_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline142"
             app:layout_constraintStart_toStartOf="@+id/guideline143"
@@ -1250,7 +1267,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/alert_content"
+            app:srcCompat="@drawable/alert_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline145"
             app:layout_constraintStart_toStartOf="@+id/guideline144"
@@ -1267,7 +1284,9 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline29"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline30">
+        app:layout_constraintTop_toTopOf="@+id/guideline30"
+        android:background="@drawable/layout_selector"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_check_due_tomorrow"
@@ -1318,7 +1337,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/vector_right"
+            app:srcCompat="@drawable/vector_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline148"
             app:layout_constraintStart_toStartOf="@+id/guideline149"
@@ -1369,7 +1388,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/alert_content"
+            app:srcCompat="@drawable/alert_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline151"
             app:layout_constraintStart_toStartOf="@+id/guideline150"
@@ -1386,7 +1405,9 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline28"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline29">
+        app:layout_constraintTop_toTopOf="@+id/guideline29"
+        android:background="@drawable/layout_selector"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_check_due_mouth"
@@ -1439,7 +1460,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/vector_right"
+            app:srcCompat="@drawable/vector_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline154"
             app:layout_constraintStart_toStartOf="@+id/guideline155"
@@ -1489,7 +1510,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/alert_content"
+            app:srcCompat="@drawable/alert_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline157"
             app:layout_constraintStart_toStartOf="@+id/guideline156"
@@ -1506,7 +1527,9 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline35"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline28">
+        app:layout_constraintTop_toTopOf="@+id/guideline28"
+        android:background="@drawable/layout_selector"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_check_due_next_mouth"
@@ -1557,7 +1580,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/vector_right"
+            app:srcCompat="@drawable/vector_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline160"
             app:layout_constraintStart_toStartOf="@+id/guideline161"
@@ -1607,7 +1630,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/alert_content"
+            app:srcCompat="@drawable/alert_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline163"
             app:layout_constraintStart_toStartOf="@+id/guideline162"
@@ -1624,7 +1647,9 @@
         app:layout_constraintBottom_toTopOf="@+id/guideline34"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/guideline35">
+        app:layout_constraintTop_toTopOf="@+id/guideline35"
+        android:background="@drawable/layout_selector"
+        android:clickable="true">
 
         <TextView
             android:id="@+id/tv_over_survey"
@@ -1678,7 +1703,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/vector_right"
+            app:srcCompat="@drawable/vector_right"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline166"
             app:layout_constraintStart_toStartOf="@+id/guideline167"
@@ -1728,7 +1753,7 @@
             android:layout_marginEnd="8dp"
             android:layout_marginRight="8dp"
             android:layout_marginBottom="8dp"
-            android:src="@drawable/alert_content"
+            app:srcCompat="@drawable/alert_content"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toStartOf="@+id/guideline169"
             app:layout_constraintStart_toStartOf="parent"

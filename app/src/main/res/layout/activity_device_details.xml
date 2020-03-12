@@ -119,13 +119,13 @@
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:layout_marginLeft="10dp"
-                android:text="出厂编号："
+                android:text="负责人："
                 android:textColor="@color/black"
                 android:textSize="15dp" />
             />
 
             <TextView
-                android:id="@+id/number"
+                android:id="@+id/user"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerVertical="true"

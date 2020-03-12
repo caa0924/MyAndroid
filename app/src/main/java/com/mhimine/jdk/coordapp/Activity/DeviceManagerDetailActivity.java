@@ -28,7 +28,7 @@ public class DeviceManagerDetailActivity extends AppCompatActivity {
 
     String namespace = "http://tempuri.org/";
     String Url = "http://47.92.68.57:8099/WebService_MySql_Eq_Management.asmx?WSDL";
-    String methodName = "SelectDeviceInfo";
+    String methodName = "SelectDeviceInfoByEquipNumber";
     private List<String> equiplist = new ArrayList<>();
     ArrayList<String> equip_list = new ArrayList<String>();
 
@@ -40,12 +40,16 @@ public class DeviceManagerDetailActivity extends AppCompatActivity {
             StrictMode.setThreadPolicy(policy);
         }
         super.onCreate(savedInstanceState);
+        Bundle equip_name = getIntent().getExtras();
+        String message = equip_name.getString("equip_code");
+        Map<String, Object> params = new HashMap<>();
+        params.put("equip_number", message);
         setContentView(R.layout.activity_device_manager_detail);
         SoapObject soapObject = Utils.callWS(namespace, methodName,
-                Url, null);
+                Url, params);
         if (soapObject != null) {
 
-            String detail = soapObject.getProperty("SelectDeviceInfoResult").toString();
+            String detail = soapObject.getProperty("SelectDeviceInfoByEquipNumberResult").toString();
             //Toast.makeText(LoginActivity.this, detail, Toast.LENGTH_SHORT).show();
 
             try {

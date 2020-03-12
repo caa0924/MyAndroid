@@ -34,7 +34,7 @@ public class MultiFragment extends Fragment  {
     private List<DeviceCheck> userList = new ArrayList<>();
     String namespace = "http://tempuri.org/";
     String Url = "http://47.92.68.57:8099/WebService_MySql_Eq_Management.asmx?WSDL";
-    String methodName = "Select";
+    String methodName = "SelectNoCheck";
 
 
 
@@ -55,7 +55,7 @@ public class MultiFragment extends Fragment  {
                 Url, null);
         if (soapObject != null) {
 
-            String detail = soapObject.getProperty("SelectResult").toString();
+            String detail = soapObject.getProperty("SelectNoCheckResult").toString();
 
             try {
                 //将JSON字符串转换为List的结构

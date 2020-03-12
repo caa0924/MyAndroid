@@ -26,55 +26,128 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="bottom">
-  <android.support.v7.widget.Toolbar
-              android:id="@+id/tool_bar"
-              android:layout_width="match_parent"
-              android:layout_height="?actionBarSize"
-              android:background="@color/themeColor"
 
-              app:contentInsetStart="0.0dp"
-              app:layout_scrollFlags="enterAlways|scroll"
-              app:theme="@style/ToolbarStyle">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/tool_bar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:background="@color/themeColor"
 
-              <RelativeLayout
-                  android:layout_width="match_parent"
-                  android:layout_height="match_parent">
+            app:contentInsetStart="0.0dp">
 
-                  <Button
-                      android:id="@+id/bt_scanner"
-                      style="@style/button_blue_style"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_centerVertical="true"
-                      android:layout_marginLeft="22dp"
-                      android:layout_marginRight="14.0dip"
-                      android:background="@drawable/button_selector"
-                      android:text="扫码"
-                      android:textSize="20dp" />
+            <android.support.constraint.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-                  <TextView
-                      android:id="@+id/no_check_txtview"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_centerVertical="true"
-                      android:layout_marginLeft="90dp"
-                      android:layout_toRightOf="@+id/bt_scanner"
-                      android:text="132"
-                      android:textColor="@color/white"
-                      android:textSize="20dp" />
+                <Button
+                    android:id="@+id/bt_scanner"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:background="@drawable/button_selector"
+                    android:text="扫码"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline48"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                  <TextView
-                      android:id="@+id/do_check_txtview"
-                      android:layout_width="wrap_content"
-                      android:layout_height="wrap_content"
-                      android:layout_centerVertical="true"
-                      android:layout_marginRight="50dp"
-                      android:layout_toRightOf="@+id/no_check_txtview"
-                      android:text="/  102"
-                      android:textColor="@color/black"
-                      android:textSize="20dp" />
-              </RelativeLayout>
-          </android.support.v7.widget.Toolbar>
+                <TextView
+                    android:id="@+id/do_check_txtview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="132"
+                    android:textColor="@color/white"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline51"
+                    app:layout_constraintStart_toStartOf="@+id/guideline49"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <TextView
+                    android:id="@+id/no_check_txtview"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="102"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline50"
+                    app:layout_constraintStart_toStartOf="@+id/guideline47"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline47"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.85" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline48"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.5" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline49"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.65" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline50"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.95" />
+
+                <android.support.constraint.Guideline
+                    android:id="@+id/guideline51"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    app:layout_constraintGuide_percent="0.75" />
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:layout_marginRight="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:text="/"
+                    android:textSize="20dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toStartOf="@+id/guideline47"
+                    app:layout_constraintStart_toStartOf="@+id/guideline51"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.Toolbar>
     </android.support.percent.PercentRelativeLayout>
 
 </RelativeLayout>

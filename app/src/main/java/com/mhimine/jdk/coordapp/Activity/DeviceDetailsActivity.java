@@ -69,6 +69,7 @@ public class DeviceDetailsActivity extends AppCompatActivity {
     private Uri mVideoUri;
     Bitmap bitmap;
     private String TAG;
+    String message;
     String cameraPath = Environment.getExternalStorageDirectory() + File.separator
             + Environment.DIRECTORY_DCIM + File.separator + "Camera" + File.separator;//系统相册的路径
     //Environment.getExternalStorageDirectory().getAbsolutePath() + "/CameraDemo/video/";
@@ -93,7 +94,7 @@ public class DeviceDetailsActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_device_details);
         Bundle userList = getIntent().getExtras();
-        String message = userList.getString("equip_code");
+        message = userList.getString("equip_code");
         Map<String, Object> params = new HashMap<>();
         params.put("equip_number", message);
         if (android.os.Build.VERSION.SDK_INT > 9) {
@@ -109,11 +110,11 @@ public class DeviceDetailsActivity extends AppCompatActivity {
                 //将JSON字符串转换为List的结构
                 List<Map<String, Object>> list = Utils.convertJSON2List(
                         detail, "Result_List", new String[]{"equip_name",
-                                "factory_number"});
+                                "equip_principal"});
                 TextView textView_device_name = (TextView) findViewById(R.id.device_name);
-                TextView textView_number = (TextView) findViewById(R.id.number);
+                TextView textView_user = (TextView) findViewById(R.id.user);
                 textView_device_name.setText(list.get(0).get("equip_name").toString().trim());
-                textView_number.setText(list.get(0).get("factory_number").toString().trim());
+                textView_user.setText(list.get(0).get("equip_principal").toString().trim());
             } catch (Exception e) {
                 e.printStackTrace();
             }
@@ -124,7 +125,10 @@ public class DeviceDetailsActivity extends AppCompatActivity {
         tv_details.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Bundle bundle = new Bundle();
+                bundle.putString("equip_code",message) ;
                 Intent i = new Intent();
+                i.putExtras(bundle);
                 i.setClass(DeviceDetailsActivity.this, DeviceManagerDetailActivity.class);
                 startActivity(i);
             }

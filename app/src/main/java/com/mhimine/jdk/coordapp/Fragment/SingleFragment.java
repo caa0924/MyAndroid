@@ -13,6 +13,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListView;
+
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.mhimine.jdk.coordapp.Activity.DeviceDetailsActivity;
 import com.mhimine.jdk.coordapp.Activity.MainActivity;
@@ -36,7 +37,7 @@ public class SingleFragment extends Fragment {
     private List<DeviceCheck> userList = new ArrayList<>();
     String namespace = "http://tempuri.org/";
     String Url = "http://47.92.68.57:8099/WebService_MySql_Eq_Management.asmx?WSDL";
-    String methodName = "Select";
+    String methodName = "SelectDoCheck";
     private View view;
 
 
@@ -59,15 +60,16 @@ public class SingleFragment extends Fragment {
                 Url, null);
         if (soapObject != null) {
 
-            String detail = soapObject.getProperty("SelectResult").toString();
+            String detail = soapObject.getProperty("SelectDoCheckResult").toString();
 
             try {
                 //将JSON字符串转换为List的结构
                 List<Map<String, Object>> list = Utils.convertJSON2List(
-                        detail, "Result_List", new String[]{"id",
-                                "device_number", "check_number", "check_time"});
+                        detail, "Result_List", new String[]{"id", "device_number",
+                                "check_user", "check_time", "check_state", "check_number"});
                 initUser(list);
-                DeviceCheckAdapter adapter = new DeviceCheckAdapter(getActivity(), R.layout.user_item, userList);
+                DeviceCheckAdapter adapter = new DeviceCheckAdapter(getActivity(),
+                        R.layout.user_item, userList);
                 final ListView listView = (ListView) view.findViewById(R.id.lv_listview);
                 listView.setAdapter(adapter);
                 listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -78,7 +80,7 @@ public class SingleFragment extends Fragment {
                         Intent intent = new Intent();
                         intent.putExtras(bundle);
                         intent.setClass(getActivity(), DeviceDetailsActivity.class);
-                      //  Log.i("userList",userList.get(arg2).getDevice_number());
+                        //  Log.i("userList",userList.get(arg2).getDevice_number());
 
                         startActivity(intent);
                     }
@@ -107,6 +109,4 @@ public class SingleFragment extends Fragment {
         }
 
     }
-
-
 }

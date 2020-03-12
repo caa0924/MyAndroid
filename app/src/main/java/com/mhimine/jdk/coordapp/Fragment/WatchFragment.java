@@ -2,6 +2,7 @@ package com.mhimine.jdk.coordapp.Fragment;
 
 import android.app.Activity;
 import android.content.Intent;
+import android.os.StrictMode;
 import android.support.annotation.Nullable;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
@@ -12,7 +13,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
@@ -20,10 +24,15 @@ import com.google.zxing.integration.android.IntentResult;
 import com.mhimine.jdk.coordapp.Activity.DeviceDetailsActivity;
 import com.mhimine.jdk.coordapp.Activity.DeviceManagerDetailActivity;
 import com.mhimine.jdk.coordapp.Activity.ScannerActivity;
+import com.mhimine.jdk.coordapp.Adapter.DeviceCheckAdapter;
 import com.mhimine.jdk.coordapp.R;
+import com.mhimine.jdk.coordapp.Utils.Utils;
+
+import org.ksoap2.serialization.SoapObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -33,14 +42,24 @@ public class WatchFragment extends Fragment {
     ViewPager myViewPager;
     @Bind(R.id.watch_tl)
     TabLayout tabLayout;
+    @Bind(R.id.no_check_txtview)
+    TextView noCheckText;
+    @Bind(R.id.do_check_txtview)
+    TextView doCheckText;
+    int doText;
+    int noText;
+    String detailDo;
+    String detailNo;
     Fragment singleFragment;
     Fragment multiFragment;
-    Fragment services_RecordFragment;
-    Fragment work_alertFragment;
     List<Fragment> fragmentList;
     private List<String> mTitleList = new ArrayList<>(4);
     View v;
     static WatchFragment watchFragment;
+    String namespace = "http://tempuri.org/";
+    String Url = "http://47.92.68.57:8099/WebService_MySql_Eq_Management.asmx?WSDL";
+    String SelectDoCheckNumber = "SelectDoCheckNumber";
+    String SelectNoCheckNumber = "SelectNoCheckNumber";
 
     public static WatchFragment getInstance() {
         if (watchFragment == null) {
@@ -55,6 +74,10 @@ public class WatchFragment extends Fragment {
         if (v != null) {
             ButterKnife.bind(this, v);
             return v;
+        }
+        if (android.os.Build.VERSION.SDK_INT > 9) {
+            StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+            StrictMode.setThreadPolicy(policy);
         }
         v = inflater.inflate(R.layout.paf_fragment_layout, container, false);
         ButterKnife.bind(this, v);
@@ -71,6 +94,23 @@ public class WatchFragment extends Fragment {
                 customScan();
             }
         });
+        SoapObject soapObjectSelectDoCheckNumber = Utils.callWS(namespace, SelectDoCheckNumber,
+                Url, null);
+        SoapObject soapObjectSelectNoCheckNumber = Utils.callWS(namespace, SelectNoCheckNumber,
+                Url, null);
+        if (soapObjectSelectDoCheckNumber != null && soapObjectSelectNoCheckNumber != null) {
+
+             detailDo = soapObjectSelectDoCheckNumber.getProperty("SelectDoCheckNumberResult").toString();
+             detailNo = soapObjectSelectNoCheckNumber.getProperty("SelectNoCheckNumberResult").toString();
+
+
+        } else {
+            System.out.println("This is null...");
+            noText = 0;
+            doText = 0;
+        }
+        doCheckText.setText(detailDo);
+        noCheckText.setText(detailNo);
         return v;
     }
 
@@ -87,7 +127,7 @@ public class WatchFragment extends Fragment {
                 Toast.makeText(getActivity(), "扫描成功", Toast.LENGTH_LONG).show();
                 String equip_code = intentResult.getContents();
                 Bundle bundle = new Bundle();
-                bundle.putString("equip_code",equip_code );
+                bundle.putString("equip_code", equip_code);
                 Intent intent = new Intent();
                 intent.putExtras(bundle);
                 intent.setClass(getActivity(), DeviceDetailsActivity.class);

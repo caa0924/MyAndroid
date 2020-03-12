@@ -33,8 +33,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".Activity.RegisterActivity"
-            android:theme="@style/AppNoTitle"/>
+        <activity android:name=".Activity.OutOfDateActivity"></activity>
+        <activity
+            android:name=".Activity.RegisterActivity"
+            android:theme="@style/AppNoTitle" />
         <activity android:name=".Activity.LoginActivity" />
         <activity android:name=".Activity.RecordActivity" />
         <activity android:name=".Activity.VideoActivity" />
